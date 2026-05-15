@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perdóname :(</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg,#ffb6c1,#ffd6e7);
+            font-family: Arial,sans-serif;
+            overflow: hidden;
+        }
+
+        .contenedor {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 55px;
+            color: white;
+            text-shadow: 2px 2px 8px black;
+        }
+
+        p {
+            font-size: 22px;
+            color: white;
+        }
+
+        button {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 20px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #si {
+            background: #4CAF50;
+            color: white;
+            margin-right: 20px;
+        }
+
+            #si:hover {
+                transform: scale(1.1);
+            }
+
+        #no {
+            background: #ff4d4d;
+            color: white;
+            position: absolute;
+        }
+
+        .corazon {
+            position: absolute;
+            font-size: 25px;
+            animation: caer linear infinite;
+        }
+
+        @keyframes caer {
+            from {
+                transform: translateY(-100px);
+            }
+
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>¿Me perdonas? 😔</h1>
+
+        <p>
+            Sé que la cagué... pero prometo mejorar 😭
+        </p>
+
+        <button id="si">Sí ❤️</button>
+        <button id="no">No 😡</button>
+    </div>
+
+    <script>
+
+const no = document.getElementById("no");
+
+no.addEventListener("mouseover",()=>{
+
+let x=Math.random()*(window.innerWidth-150);
+let y=Math.random()*(window.innerHeight-100);
+
+no.style.left=x+"px";
+no.style.top=y+"px";
+
+});
+
+document.getElementById("si").onclick=()=>{
+
+document.body.innerHTML=`
+<div style="
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+font-family:Arial;
+text-align:center;
+">
+
+<h1 style="font-size:60px">
+TE AMO MUCHO ❤️😭
+</h1>
+
+<p style="font-size:30px">
+Gracias por perdonarme, prometo compensarlo
+</p>
+
+</div>
+`;
+
+crearCorazones();
+
+};
+
+function crearCorazones(){
+
+setInterval(()=>{
+
+let corazon=document.createElement("div");
+
+corazon.innerHTML="❤️";
+corazon.className="corazon";
+
+corazon.style.left=Math.random()*100+"vw";
+
+corazon.style.animationDuration=
+(Math.random()*3+2)+"s";
+
+document.body.appendChild(corazon);
+
+setTimeout(()=>{
+corazon.remove();
+},5000)
+
+},200)
+
+}
+
+    </script>
+
+</body>
+</html>
