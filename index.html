@@ -160,23 +160,89 @@
 
         document.getElementById("si").onclick = () => {
 
-            document.querySelector(".contenedor").innerHTML = `
+            document.querySelector(".contenedor").innerHTML=`
 
 <h1 style="
-font-size:60px;
+font-size:50px;
 color:white;
+margin-bottom:80px;
+position:relative;
+z-index:5;
 ">
-TE AMO MUCHO ❤️😭
+
+TE AMO MUCHO LEA ❤️😭
+
 </h1>
 
-<p style="
-font-size:30px;
-color:white;
+<div id="niño" style="
+position:fixed;
+right:20px;
+bottom:0;
+width:320px;
+height:260px;
 ">
-Gracias por perdonarme, prometo compensarlo
-</p>
+
+<div id="globo" style="
+position:absolute;
+right:170px;
+bottom:150px;
+
+background:white;
+color:black;
+
+padding:12px 18px;
+
+border-radius:20px;
+
+font-size:20px;
+font-weight:bold;
+
+max-width:180px;
+">
+
+Te voy a dar una enchilada 🌯❤️
+
+<div style="
+position:absolute;
+right:-8px;
+bottom:15px;
+
+width:20px;
+height:20px;
+
+background:white;
+transform:rotate(45deg);
+">
+</div>
+
+</div>
+
+<img
+src="italo.png"
+style="
+position:absolute;
+right:0;
+bottom:0;
+
+height:240px;
+width:auto;
+object-fit:contain;
+">
+
+</div>
 
 `;
+
+if(window.innerWidth < 600){
+
+document.getElementById("niño").style.transform="scale(0.80)";
+document.getElementById("niño").style.transformOrigin="bottom right";
+
+document.getElementById("globo").style.fontSize="15px";
+document.getElementById("globo").style.padding="10px 14px";
+document.getElementById("globo").style.maxWidth="130px";
+
+}
 
             crearCorazones();
 
